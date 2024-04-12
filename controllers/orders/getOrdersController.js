@@ -1,7 +1,7 @@
 const Order = require('../../model/Order');
 
 const handleGetOrders = async (req, res) => {
-    const { phoneNumber } = req.body.category;
+    const { phoneNumber } = req.body;
     if (!phoneNumber) return res.sendStatus(400); // Bad request
 
     const ordersList = await Order.find({phoneNumber: phoneNumber});
