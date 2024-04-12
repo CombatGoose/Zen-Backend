@@ -28,6 +28,8 @@ app.use(cookieParser());
 app.use('/createProduct', require('./routes/createProduct'));
 app.use('/getAllProducts', require('./routes/getAllProducts'));
 app.use('/getProduct', require('./routes/getProduct'));
+app.use('/createOrder', require('./routes/createOrder'));
+app.use('/getOrders', require('./routes/getOrders'));
 
 mongoose.connection.once('open', () => {
     console.log('Connected to MongoDB');
