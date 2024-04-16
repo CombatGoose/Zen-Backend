@@ -32,6 +32,10 @@ const orderSchema = new Schema({
         type: Number,
         required: true
     },
+    wishes: {
+        type: String,
+        required: false
+    },
     orderProducts: [
         {
             productName: {
@@ -45,10 +49,6 @@ const orderSchema = new Schema({
             count: {
                 type: Number,
                 required: true
-            },
-            wishes: {
-                type: String,
-                required: false
             }
         }
     ]
