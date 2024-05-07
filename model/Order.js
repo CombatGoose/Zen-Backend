@@ -49,6 +49,10 @@ const orderSchema = new Schema({
             count: {
                 type: Number,
                 required: true
+            },
+            imgSrc: {
+                type: String,
+                required: true
             }
         }
     ]

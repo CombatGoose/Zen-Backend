@@ -7,20 +7,19 @@ const handleCreateOrder = async (req, res) => {
             phoneNumber: req.body.phoneNumber,
             cardNumber: req.body.cardNumber,
             delivery: {
-                typeDel: req.body.typeDel
+                typeDel: req.body.delivery.typeDel
             },
             createdAt: new Date(),
             finishPrice: req.body.finishPrice,
-            orderProducts: [
-                {
-                    productName: req.body.productName,
-                    productPrice: req.body.productPrice,
-                    count: req.body.count
-                }
-            ]
+            orderProducts: req.body.orderProducts.map(product => ({
+                productName: product.productName,
+                productPrice: product.productPrice,
+                count: product.count,
+                imgSrc: product.imgSrc
+            }))
         }
 
-        if (req.body.adress) newOrderData.adress = req.body.adress;
+        if (req.body.adress) newOrderData.delivery.adress = req.body.delivery.adress;
         if (req.body.wishes) newOrderData.wishes = req.body.wishes;
 
         const newOrder = new Order(newOrderData);
